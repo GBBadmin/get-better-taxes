@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Better Taxes | It's About Time You Liked Your Tax Team | GBB</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ============================================================
+   BRAND TOKENS — swap in exact GBB hex codes here
+   ============================================================ */
+:root{
+  --green:       #1F9D55;   /* primary brand / CTA green */
+  --green-deep:  #0E6B3A;   /* hover + dark green */
+  --green-tint:  #EAF5EE;   /* light section wash */
+  --ink:         #16283A;   /* deep navy — headings, dark sections */
+  --ink-2:       #33475C;   /* body text on light */
+  --paper:       #FBFBF8;   /* page background */
+  --white:       #FFFFFF;
+  --alarm:       #E8542F;   /* problem-section accent ONLY */
+  --gold:        #F5B301;   /* review stars */
+  --line:        #DCE3DD;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(22,40,58,.10);
+  --font-display:'Archivo', sans-serif;
+  --font-body:'Public Sans', sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink-2);
+  line-height:1.65;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:var(--green-deep);}
+.wrap{max-width:1150px;margin:0 auto;padding:0 24px;}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border:1.5px solid currentColor;
+  border-radius:4px;
+}
+h1,h2,h3{font-family:var(--font-display);color:var(--ink);line-height:1.12;letter-spacing:-.01em;}
+h2{font-size:clamp(28px,4vw,42px);font-weight:900;margin:18px 0 20px;}
+h3{font-size:20px;font-weight:800;}
+p{margin-bottom:16px;}
+strong{color:var(--ink);}
+.btn{
+  display:inline-block;
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:16px;
+  letter-spacing:.01em;
+  background:var(--green);
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:16px 30px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background .18s ease, transform .18s ease;
+}
+.btn:hover{background:var(--green-deep);transform:translateY(-1px);}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+.btn.ghost:hover{background:var(--ink);color:#fff;}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ===================== TOP BAR + HEADER ===================== */
+.topbar{
+  background:var(--ink);
+  color:#C9D6E2;
+  font-size:13px;
+  font-family:var(--font-mono);
+}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px;gap:12px;flex-wrap:wrap;}
+.topbar a{color:#fff;text-decoration:none;}
+.topbar a:hover{text-decoration:underline;}
+header.site{
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo img{height:48px;width:auto;}
+.logo .mark{display:flex;flex-direction:column;line-height:1;}
+.logo .mark-top{
+  font-family:var(--font-mono);font-size:11px;font-weight:600;
+  letter-spacing:.26em;color:var(--ink-2);
+}
+.logo .mark-bot{
+  font-family:var(--font-display);font-weight:900;font-size:27px;
+  letter-spacing:-.01em;color:var(--green);margin-top:3px;
+}
+@media(max-width:520px){
+  .logo .mark-bot{font-size:22px;}
+  .logo .mark-top{font-size:9.5px;letter-spacing:.2em;}
+}
+nav.main{display:flex;gap:22px;align-items:center;}
+nav.main a{
+  color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;
+}
+nav.main a:hover{color:var(--green-deep);}
+@media(max-width:1080px){ nav.main .navlink{display:none;} }
+
+/* ===================== HERO ===================== */
+.hero{
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(31,157,85,.14), transparent 60%),
+    linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero .wrap{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:56px;
+  padding-top:72px;padding-bottom:80px;
+  align-items:start;
+}
+@media(max-width:920px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-top:48px;padding-bottom:56px;}
+}
+.hero .eyebrow{color:var(--green-deep);}
+.hero h1{
+  font-size:clamp(36px,5.2vw,58px);
+  font-weight:900;
+  margin:22px 0 20px;
+}
+.hero h1 em{font-style:normal;color:var(--green);}
+.hero .sub{font-size:19px;max-width:56ch;}
+.trust{
+  margin-top:28px;
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-family:var(--font-mono);font-size:13px;color:var(--ink);
+}
+.trust span::before{content:"✓ ";color:var(--green);font-weight:700;}
+
+/* form card */
+.quote-card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-top:6px solid var(--green);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:30px 28px;
+}
+.quote-card h3{margin-bottom:6px;font-size:22px;}
+.quote-card .lede{font-size:15px;margin-bottom:20px;}
+.field{margin-bottom:14px;}
+.field label{
+  display:block;font-family:var(--font-mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:6px;
+}
+.field input,.field select,.field textarea{
+  width:100%;font-family:var(--font-body);font-size:15px;color:var(--ink);
+  padding:12px 14px;border:1.5px solid var(--line);border-radius:8px;background:#fff;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,157,85,.15);
+}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:520px){.two-col{grid-template-columns:1fr;}}
+.quote-card .btn{width:100%;margin-top:6px;}
+.form-note{
+  margin-top:14px;text-align:center;font-family:var(--font-mono);
+  font-size:12px;color:var(--ink-2);
+}
+.form-thanks{
+  display:none;background:var(--green-tint);border:1.5px solid var(--green);
+  border-radius:8px;padding:14px;margin-top:12px;font-size:14.5px;color:var(--green-deep);font-weight:600;
+}
+
+/* ===================== SECTION SHELLS ===================== */
+section{padding:84px 0;}
+@media(max-width:700px){section{padding:60px 0;}}
+.section-head{max-width:820px;}
+
+/* ===================== PROBLEM ===================== */
+.problem{background:var(--white);border-bottom:1px solid var(--line);}
+.problem .eyebrow{color:var(--alarm);}
+.problem .narrative{max-width:820px;}
+
+/* schedule of facts — the tax-form motif */
+.schedule{
+  margin:48px 0 40px;
+  background:var(--ink);
+  color:#DBE6EF;
+  border-radius:var(--radius);
+  padding:38px 40px;
+  box-shadow:var(--shadow);
+}
+@media(max-width:640px){.schedule{padding:28px 20px;}}
+.schedule .form-id{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  border-bottom:2px solid rgba(255,255,255,.25);
+  padding-bottom:14px;margin-bottom:8px;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9DB4C8;
+}
+.schedule .form-id b{color:#fff;font-weight:600;}
+.line-item{
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:14px;align-items:baseline;
+  padding:18px 0;border-bottom:1px dashed rgba(255,255,255,.22);
+}
+.line-item:last-of-type{border-bottom:none;}
+.line-item .no{
+  font-family:var(--font-mono);font-size:12px;color:#9DB4C8;
+  border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:2px 7px;white-space:nowrap;
+}
+.line-item .desc{font-size:16px;color:#EAF1F7;}
+.line-item .desc small{display:block;color:#9DB4C8;font-size:13.5px;margin-top:3px;font-style:italic;}
+.line-item .fig{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(26px,3.4vw,38px);color:var(--gold);
+  line-height:1;white-space:nowrap;
+}
+.line-item.total .fig{color:var(--green);font-size:clamp(28px,3.8vw,42px);}
+.line-item.total .desc{color:#fff;font-weight:600;}
+@media(max-width:640px){
+  .line-item{grid-template-columns:auto 1fr;}
+  .line-item .fig{grid-column:2;justify-self:end;}
+}
+
+/* pick two of three */
+.pick-two{max-width:820px;}
+.chips{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 26px;}
+.chip{
+  font-family:var(--font-mono);font-weight:600;font-size:15px;color:var(--ink);
+  border:2px solid var(--ink);border-radius:8px;padding:12px 20px;background:var(--white);
+  position:relative;
+}
+.chip::before{content:"☐ ";}
+.gap-callout{
+  border-left:5px solid var(--green);
+  background:var(--green-tint);
+  padding:22px 26px;border-radius:0 10px 10px 0;
+  font-size:18px;max-width:820px;
+}
+.gap-callout strong{color:var(--green-deep);}
+
+/* ===================== DIFFERENTIATORS ===================== */
+.different{background:var(--green-tint);}
+.different .eyebrow{color:var(--green-deep);}
+.diff-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;
+}
+@media(max-width:820px){.diff-grid{grid-template-columns:1fr;}}
+.diff-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;box-shadow:0 4px 16px rgba(22,40,58,.06);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.diff-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.diff-card .tag{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green-deep);border:1px solid var(--green);border-radius:4px;
+  display:inline-block;padding:3px 8px;margin-bottom:16px;
+}
+.diff-card h3{margin-bottom:10px;}
+.diff-card p{margin-bottom:0;font-size:15.5px;}
+
+/* ===================== PROOF ===================== */
+.proof{background:var(--white);}
+.proof .eyebrow{color:var(--green-deep);}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:44px 0 20px;}
+@media(max-width:820px){.case-grid{grid-template-columns:1fr;}}
+.case{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--paper);padding:28px;position:relative;
+}
+.case .fig{
+  font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--green-deep);
+  line-height:1.05;margin-bottom:6px;
+}
+.case .who{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);margin-bottom:12px;
+}
+.case p{font-size:15px;margin-bottom:0;}
+.reviews{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:36px;}
+@media(max-width:820px){.reviews{grid-template-columns:1fr;}}
+.review{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;box-shadow:0 4px 16px rgba(22,40,58,.05);
+}
+.review .stars{color:var(--gold);font-size:17px;letter-spacing:2px;margin-bottom:12px;}
+.review p{font-size:15px;font-style:italic;margin-bottom:0;color:var(--ink-2);}
+
+/* ===================== FINAL CTA ===================== */
+.final{
+  background:linear-gradient(120deg, var(--ink) 0%, #0F3A2A 100%);
+  color:#EAF1F7;text-align:center;
+}
+.final h2{color:#fff;max-width:760px;margin-left:auto;margin-right:auto;}
+.final p{max-width:640px;margin:0 auto 30px;color:#C9D6E2;font-size:18px;}
+.final .btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.final .btn.ghost{color:#fff;border-color:#fff;}
+.final .btn.ghost:hover{background:#fff;color:var(--ink);}
+
+/* ===================== FOOTER ===================== */
+footer{background:var(--ink);color:#9DB4C8;font-size:14px;border-top:1px solid rgba(255,255,255,.12);}
+footer .wrap{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;
+  padding-top:56px;padding-bottom:40px;
+}
+@media(max-width:760px){footer .wrap{grid-template-columns:1fr;}}
+footer h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
+footer a{color:#DBE6EF;text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+footer .brandline{font-family:var(--font-display);font-weight:800;color:#fff;font-size:18px;margin-bottom:10px;}
+footer .brandline span{color:var(--green);}
+.copyright{
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:18px 0;text-align:center;font-family:var(--font-mono);font-size:12px;color:#7F97AB;
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div>Tulsa <a href="tel:9189486464">(918) 948-6464</a> &nbsp;·&nbsp; OKC <a href="tel:4055483808">(405) 548-3808</a></div>
+    <div>office@getbetterbookkeeping.com &nbsp;·&nbsp; Mon–Fri: 8am–5pm</div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="site">
+  <div class="wrap">
+    <!-- ===== LOGO =====
+         To use your real logo image instead of this wordmark, replace the whole
+         <a class="logo"> block below with:
+           <a class="logo" href="#top"><img src="logo.png" alt="Get Better Taxes"></a>
+         and drop logo.png in the same folder as this file.
+         To change the wordmark text, edit the two lines marked WORDMARK. -->
+    <a class="logo" href="#top">
+      <span class="mark">
+        <span class="mark-top">GET BETTER</span>      <!-- WORDMARK line 1 -->
+        <span class="mark-bot">TAXES</span>           <!-- WORDMARK line 2 -->
+      </span>
+    </a>
+    <nav class="main">
+      <a class="navlink" href="https://getbetterbookkeeping.com/">Home</a>
+      <a class="navlink" href="https://getbetterbookkeeping.com/services/">Our Services</a>
+      <a class="navlink" href="https://getbetterbookkeeping.com/client-testimonials/">Client Testimonials</a>
+      <a class="navlink" href="https://getbetterbookkeeping.com/about-us/">About Us</a>
+      <a class="navlink" href="https://getbetterbookkeeping.com/contact-us/">Contact Us</a>
+      <a class="btn" href="#quote" style="padding:12px 22px;font-size:15px;">Get My Quote</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== SECTION 1 — ABOVE THE FOLD ===== -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">New · A Get Better Bookkeeping Service</span>
+      <h1>It's about time you <em>liked</em> your tax team. Maybe even loved them.</h1>
+      <p class="sub">Proactive, relationship-driven tax help from a proven bookkeeping team that keeps up with your finances all year. No more scrambles. Planning before the deadline. <strong>Why isn't this normal?</strong></p>
+      <div class="trust">
+        <span>Full-service tax work since 1977</span>
+        <span>Filing, planning &amp; year-round strategy</span>
+        <span>Tulsa &amp; OKC · serving small businesses nationwide</span>
+      </div>
+    </div>
+
+    <div class="quote-card" id="quote">
+      <h3>See what our help would cost you.</h3>
+      <p class="lede">Tell us a little about your business and we'll send back a straight answer — no sales sequence, no demo gauntlet.</p>
+      <div class="two-col">
+        <div class="field"><label for="fname">First name</label><input id="fname" type="text" autocomplete="given-name"></div>
+        <div class="field"><label for="lname">Last name</label><input id="lname" type="text" autocomplete="family-name"></div>
+      </div>
+      <div class="field"><label for="bname">Business name</label><input id="bname" type="text" autocomplete="organization"></div>
+      <div class="two-col">
+        <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field">
+        <label for="entity">How is your business structured?</label>
+        <select id="entity">
+          <option>Sole Prop</option><option>Single-Member LLC</option><option>S-Corp</option><option>Partnership</option><option>C-Corp</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sales">Your total sales last year?</label>
+        <select id="sales">
+          <option>Under $500k</option><option>$500k–$1M</option><option>$1M–$2M</option><option>$2M+</option><option>I don't know</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="headache">What's your biggest tax headache right now? (optional)</label>
+        <textarea id="headache" rows="2"></textarea>
+      </div>
+      <button class="btn" id="submitQuote">Get My Quote</button>
+      <div class="form-thanks" id="formThanks">Thanks! We'll be in touch with a straight answer shortly.</div>
+      <div class="form-note">Filing, planning, and year-round strategy · Tulsa &amp; Oklahoma City, serving small businesses nationwide</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 2 — THE PROBLEM ===== -->
+<section class="problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Problem</span>
+      <h2>Getting your return filed on time matters. But isn't that the bare minimum?</h2>
+    </div>
+    <div class="narrative reveal">
+      <p>Why is it the same nonsense every year? You're so busy running the business that thinking about taxes is the last thing you want to do. Then the deadline forces your hand, and you're fumbling to reconstruct expenses you forgot about nine months ago. So you reach out to the tax guy or gal you haven't heard from since last April — and they're always busy, and they can never quite get you an answer. And heaven forbid you actually get a meeting, because <strong>you might walk out of it feeling like an idiot about your own business.</strong></p>
+      <p>Too many local, small business owners have this experience, but too many "tax influencers" always pedal chasing loopholes or gaming the system. <strong>What if we just went back to tax teams providing genuinely helpful, timely service?</strong></p>
+    </div>
+
+    <div class="schedule reveal">
+      <div class="form-id">
+        <span><b>Schedule F</b> · The Hard, Cold Facts</span>
+        <span>Don't believe me? Attach to your next tax return.</span>
+      </div>
+      <div class="line-item">
+        <span class="no">Line 1</span>
+        <span class="desc">Small business owners fully satisfied with the tax service they get.
+          <small>So I guess tax teams are barely getting a "D" grade with small business owners?</small></span>
+        <span class="fig">61%</span>
+      </div>
+      <div class="line-item">
+        <span class="no">Line 2</span>
+        <span class="desc">Businesses open to switching in any given year.
+          <small>Yeah, 25% of all small businesses, at any given time, would switch. Wow!</small></span>
+        <span class="fig">1 in 4</span>
+      </div>
+      <div class="line-item">
+        <span class="no">Line 3</span>
+        <span class="desc">Of those who leave, how many left because they got reactive service instead of proactive advice.</span>
+        <span class="fig">72%</span>
+      </div>
+      <div class="line-item total">
+        <span class="no">Line 4</span>
+        <span class="desc">Small business owners who, even with all this frustration, still want a trusted tax advisor.
+          <small>Owners aren't angry at their tax pro; they've just quietly settled for a filer when what they wanted was a partner.</small></span>
+        <span class="fig">86%</span>
+      </div>
+    </div>
+
+    <div class="pick-two reveal">
+      <p>It's only getting harder from here. Roughly <strong>75% of CPAs are near retirement</strong>, far fewer people are entering the field, and more of the work is getting shipped overseas every year.</p>
+      <p><strong>So you essentially get to pick two of three choices:</strong></p>
+      <div class="chips">
+        <span class="chip">Affordable</span>
+        <span class="chip">Capable</span>
+        <span class="chip">Available</span>
+      </div>
+      <div class="gap-callout">
+        And who gets the short end of the straw? Small business owners! <strong>That's the gap. It's exactly where Get Better Taxes lives.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3 — HOW WE'RE DIFFERENT ===== -->
+<section class="different">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How We're Different</span>
+      <h2>Why we can genuinely stand behind this name</h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <span class="tag">Box A · Available</span>
+        <h3>Available tax people you'll actually like.</h3>
+        <p>We've all put up with tax pros who are permanently too busy, never pick up the phone, and never explain anything. We're called Get Better Taxes for a reason: likeable, reachable people who know your business and take the time to educate you — not a stranger you meet once a year. Quick questions during the year never get nickel-and-dimed.</p>
+      </div>
+      <div class="diff-card reveal">
+        <span class="tag">Box B · Proactive</span>
+        <h3>Proactive, not reactive.</h3>
+        <p>We started as a bookkeeping and CFO firm, so your tax work gets the same forward-looking treatment. That means a Q4 projection so you know what you'll owe before it's due, a mid-year check-in while there's still time to act, and estimated-tax management that lands you near break-even instead of overpaying the IRS all year. Most firms react to what already happened. We get ahead of what's about to.</p>
+      </div>
+      <div class="diff-card reveal">
+        <span class="tag">Box C · Accountable</span>
+        <h3>Accountability in accounting.</h3>
+        <p>If you never hear from your tax team, that's not a sign everything's fine — that's the problem. Expect us to reach out, spot issues ahead of time, and bring them to you before they get expensive. Silence isn't service.</p>
+      </div>
+      <div class="diff-card reveal">
+        <span class="tag">Box D · Integrated</span>
+        <h3>Books and taxes, better together.</h3>
+        <p>Most bookkeepers won't touch tax. Most tax firms treat books as a chore. We already have your numbers, accurate and current, which means no shoebox, no chasing you down for documents, and no year that starts from scratch. Same people, every year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4 — PROOF ===== -->
+<section class="proof">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Proof</span>
+      <h2>We've been serving small business owners for years, and we'll never stop.</h2>
+      <p>In our first three years of bookkeeping and CFO work with hundreds of local small businesses, we kept running into the same gap between what owners wanted from a tax partner and what they could actually afford. Get Better Taxes closes it — backed by a tax department that's been doing full-service tax work <strong>since 1977</strong>.</p>
+      <p><strong>Here's what our work has looked like for clients:</strong></p>
+    </div>
+
+    <div class="case-grid">
+      <div class="case reveal">
+        <div class="fig">$74,000</div>
+        <div class="who">Remodeling Company · Tulsa, OK</div>
+        <p>When we took over the books, we found and fixed a $74,000 discrepancy — saving them tens of thousands in overstated tax liability.</p>
+      </div>
+      <div class="case reveal">
+        <div class="fig">½ the taxes</div>
+        <div class="who">Auto Glass Repair Company</div>
+        <p>They came to us with financials that hadn't been updated. Once they were clean, the tax picture changed completely: he was told he'd owe half of what his previous preparer had him paying.</p>
+      </div>
+      <div class="case reveal">
+        <div class="fig">+$60,000</div>
+        <div class="who">Fire Suppression &amp; Safety Company</div>
+        <p>We walked them through the Profit First system so their tax bill stopped being a surprise. They grew their bank balance by $60,000 in seven months — with the tax money already set aside.</p>
+      </div>
+      <div class="case reveal">
+        <div class="fig">More profit, less stress</div>
+        <div class="who">Cleaning Company · Tulsa, OK</div>
+        <p>They came to us after years of working with CPAs who made them feel dumb. They now describe their financial team as "friendly, informed, and so easy to talk to" — and in a year sales were <em>down</em>, they earned more profit and paid themselves more.</p>
+      </div>
+    </div>
+
+    <p class="reveal"><strong>And here's what clients say about the people, which is the part that matters most:</strong></p>
+    <div class="reviews">
+      <div class="review reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The whole team @ GBB are fantastic! We used an online service prior to switching and the process has been awesome. We were 'flying blind' prior to working with them."</p>
+      </div>
+      <div class="review reveal">
+        <div class="stars">★★★★★</div>
+        <p>"After having multiple negative experiences with other bookkeepers I can genuinely say I have found an amazing one!!"</p>
+      </div>
+      <div class="review reveal">
+        <div class="stars">★★★★★</div>
+        <p>"This is the only bookkeeping service that has ever worked for us."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="wrap reveal">
+    <h2>It's about time you had an available tax team at Get Better Taxes that you'll actually like, and hey, maybe even love.</h2>
+    <p>Tell us a little about your business and we'll send back a straight answer.</p>
+    <div class="btn-row">
+      <a class="btn" href="#quote">Get My Quote</a>
+      <a class="btn ghost" href="https://getbetterbookkeeping.com/client-testimonials/">See All Client Reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brandline">GET BETTER <span>TAXES</span></div>
+      <p style="margin-bottom:0;">A Get Better Bookkeeping service. Proactive, relationship-driven tax help for small business owners — filing, planning, and year-round strategy from the team that already keeps your books.</p>
+    </div>
+    <div>
+      <h4>Tulsa Office</h4>
+      <p><a href="tel:9189486464">(918) 948-6464</a><br>3015 E Skelly Dr, Suite 1010<br>Tulsa, OK 74105</p>
+    </div>
+    <div>
+      <h4>OKC Office</h4>
+      <p><a href="tel:4055483808">(405) 548-3808</a><br>2520 NW 39th St, Suite 205<br>Oklahoma City, OK 73112</p>
+    </div>
+  </div>
+  <div class="copyright">Copyright 2026 © All Rights Reserved · Get Better Taxes · a Get Better Bookkeeping service</div>
+</footer>
+
+<script>
+// scroll reveal (respects reduced motion)
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReduced && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+
+// mock form submit
+document.getElementById('submitQuote').addEventListener('click', ()=>{
+  document.getElementById('formThanks').style.display='block';
+});
+</script>
+</body>
+</html>
