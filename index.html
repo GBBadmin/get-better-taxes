@@ -118,6 +118,7 @@ nav.main a{
   color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;
 }
 nav.main a:hover{color:var(--green-deep);}
+nav.main a.btn,nav.main a.btn:hover{color:#fff;}
 .menu-toggle{
   display:none;align-items:center;justify-content:center;
   width:44px;height:44px;border:1.5px solid var(--line);border-radius:8px;
@@ -218,17 +219,13 @@ section{padding:84px 0;}
   padding-bottom:14px;margin-bottom:8px;
   font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-dim);
 }
-.schedule .form-id b{color:#fff;font-weight:600;}
+.schedule .form-id b{color:#fff;font-weight:600;font-size:13px;}
 .line-item{
-  display:grid;grid-template-columns:auto 1fr auto;
+  display:grid;grid-template-columns:1fr auto;
   gap:14px;align-items:baseline;
   padding:18px 0;border-bottom:1px dashed rgba(255,255,255,.22);
 }
 .line-item:last-of-type{border-bottom:none;}
-.line-item .no{
-  font-family:var(--font-mono);font-size:12px;color:var(--on-dark-dim);
-  border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:2px 7px;white-space:nowrap;
-}
 .line-item .desc{font-size:16px;color:var(--on-dark);}
 .line-item .desc small{display:block;color:var(--on-dark-dim);font-size:13.5px;margin-top:3px;font-style:italic;}
 .line-item .fig{
@@ -239,8 +236,8 @@ section{padding:84px 0;}
 .line-item.total .fig{color:var(--green-light);font-size:clamp(28px,3.8vw,42px);}
 .line-item.total .desc{color:#fff;font-weight:600;}
 @media(max-width:640px){
-  .line-item{grid-template-columns:auto 1fr;}
-  .line-item .fig{grid-column:2;justify-self:end;}
+  .line-item{grid-template-columns:1fr;gap:10px;}
+  .line-item .fig{justify-self:end;}
 }
 
 /* pick two of three */
@@ -273,11 +270,6 @@ section{padding:84px 0;}
   transition:transform .18s ease, box-shadow .18s ease;
 }
 .diff-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-.diff-card .tag{
-  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--green-deep);border:1px solid var(--green);border-radius:4px;
-  display:inline-block;padding:3px 8px;margin-bottom:16px;
-}
 .diff-card h3{margin-bottom:10px;}
 .diff-card p{margin-bottom:0;font-size:15.5px;}
 
@@ -407,28 +399,23 @@ footer .brandline span{color:var(--green);}
 
     <div class="schedule reveal">
       <div class="form-id">
-        <span><b>Schedule F</b> · The Hard, Cold Facts</span>
-        <span>Don't believe me? Attach to your next tax return.</span>
+        <span><b>The Hard, Cold Facts</b></span>
       </div>
       <div class="line-item">
-        <span class="no">Line 1</span>
         <span class="desc">Small business owners fully satisfied with the tax service they get.
           <small>So I guess tax teams are barely getting a "D" grade with small business owners?</small></span>
         <span class="fig">61%</span>
       </div>
       <div class="line-item">
-        <span class="no">Line 2</span>
         <span class="desc">Businesses open to switching in any given year.
           <small>Yeah, 25% of all small businesses, at any given time, would switch. Wow!</small></span>
         <span class="fig">1 in 4</span>
       </div>
       <div class="line-item">
-        <span class="no">Line 3</span>
         <span class="desc">Of those who leave, how many left because they got reactive service instead of proactive advice.</span>
         <span class="fig">72%</span>
       </div>
       <div class="line-item total">
-        <span class="no">Line 4</span>
         <span class="desc">Small business owners who, even with all this frustration, still want a trusted tax advisor.
           <small>Owners aren't angry at their tax pro; they've just quietly settled for a filer when what they wanted was a partner.</small></span>
         <span class="fig">86%</span>
@@ -459,22 +446,18 @@ footer .brandline span{color:var(--green);}
     </div>
     <div class="diff-grid">
       <div class="diff-card reveal">
-        <span class="tag">Box A · Available</span>
         <h3>Available tax people you'll actually like.</h3>
         <p>We've all put up with tax pros who are permanently too busy, never pick up the phone, and never explain anything. We're called Get Better Taxes for a reason: likeable, reachable people who know your business and take the time to educate you — not a stranger you meet once a year. Quick questions during the year never get nickel-and-dimed.</p>
       </div>
       <div class="diff-card reveal">
-        <span class="tag">Box B · Proactive</span>
         <h3>Proactive, not reactive.</h3>
         <p>We started as a bookkeeping and CFO firm, so your tax work gets the same forward-looking treatment. That means a Q4 projection so you know what you'll owe before it's due, a mid-year check-in while there's still time to act, and estimated-tax management that lands you near break-even instead of overpaying the IRS all year. Most firms react to what already happened. We get ahead of what's about to.</p>
       </div>
       <div class="diff-card reveal">
-        <span class="tag">Box C · Accountable</span>
         <h3>Accountability in accounting.</h3>
         <p>If you never hear from your tax team, that's not a sign everything's fine — that's the problem. Expect us to reach out, spot issues ahead of time, and bring them to you before they get expensive. Silence isn't service.</p>
       </div>
       <div class="diff-card reveal">
-        <span class="tag">Box D · Integrated</span>
         <h3>Books and taxes, better together.</h3>
         <p>Most bookkeepers won't touch tax. Most tax firms treat books as a chore. We already have your numbers, accurate and current, which means no shoebox, no chasing you down for documents, and no year that starts from scratch. Same people, every year.</p>
       </div>
